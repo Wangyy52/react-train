@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>组件条件判断</title>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        class AutoPage extends React.Component{
+            constructor(props) {
+                super(props)
+                this.state={isLogin:false}
+            }
+            login = ()=>{
+                this.setState(state=>({
+                    isLogin:true
+                }))
+            }
+            logout = ()=>{
+                this.setState(state=>({
+                    isLogin:false
+                }))
+            }
+            render(){
+                const {isLogin} = this.state
+                console.log({isLogin})
+                if(isLogin){
+
+                    return <div> <span>你已经登录</span><button onClick={this.logout}>登出</button></div>
+                }else {
+                    return <div><span>你还没登录</span><button onClick={this.login}>登录</button></div>
+                }
+            }
+        }
+        class App extends React.Component {
+            render(){
+                return <AutoPage />
+            }
+        }
+        ReactDOM.render(
+            <App />,
+            document.getElementById('container')
+        )
+    </script>
+</body>
+
+</html>

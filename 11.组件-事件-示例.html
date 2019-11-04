@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>组件-sate互不影响示例</title>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        class Toggle extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {isToggle:false}
+            }
+
+            handelClick = ()=>{
+                this.setState(state=>({
+                    isToggle : !state.isToggle
+                }))
+                console.log(this.state.isToggle)
+            }
+            render(){
+                return <button onClick = {this.handelClick}>{this.state.isToggle ? 'ON' : 'OFF'}</button>
+            }
+        }
+        class App extends React.Component{
+            render(){
+                return <div><Toggle /></div> 
+            }
+        }
+        ReactDOM.render(
+            <App />,
+            document.getElementById('container')
+            )
+    </script>
+</body>
+
+</html>

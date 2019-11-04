@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>表单-示例</title>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        class BoilingVedict extends React.Component{
+            render(){
+                const {celsius} = this.props
+                if(celsius>=100){
+                    return <p>水已经沸腾了</p>
+                }else {
+                    return <p>水还未沸腾</p>
+                }
+            }
+        }
+        
+        class Calculator extends React.Component{
+            constructor(props) {
+                super(props);
+                this.state = {temperature:''}
+            }
+            handlChange=(e)=>{
+                this.setState({temperature:e.target.value})
+            }
+            render(){
+                const {temperature} = this.state
+                return <fieldset>
+                    <legend>输入摄氏温度：</legend>
+                    <input type="text" value={temperature} onChange={this.handlChange} />
+                    <BoilingVedict celsius={temperature} />
+                    </fieldset>
+            }  
+        
+        }
+        class App extends React.Component{
+            render(){
+                return <div><Calculator/></div>
+            }
+        }
+        ReactDOM.render(
+            <App />,
+            document.getElementById('container')
+        )
+        
+        
+        
+    </script>
+</body>
+
+</html>

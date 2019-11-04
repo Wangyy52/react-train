@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>列表&key-实例</title>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        class ProductList extends React.Component{
+            products = [{
+                name:"苹果",
+                price:10.0
+            },{
+                name:"芒果",
+                price:20.0
+            },{
+                name:"凤梨",
+                price:15.0
+            },{
+                name:"西瓜",
+                price:12.0
+            }]
+            render(){
+                const list = this.products.map((item,key)=>
+                    <li key={key}>{item.name} {item.price}</li>
+                )
+                return <ul>
+                    {list}</ul>
+
+            }
+        }
+        class App extends React.Component{
+            render(){
+                return <div>
+                    <h2>商品列表</h2>
+                    <ProductList />
+                    </div>
+            }
+        }
+        ReactDOM.render(
+            <App />,
+            document.getElementById('container')
+        )
+    </script>
+</body>
+
+</html>

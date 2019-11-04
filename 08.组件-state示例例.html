@@ -11,17 +11,24 @@
   <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
   <script type="text/babel">
-    class Clock extends React.Component {
-      render () {
+    class Clock extends React.Component{
+      constructor(props) {
+        super(props);
+        this.state = {date:new Date()};
+        setInterval(() => {
+          this.setState({date:new Date()})
+        }, 1000);
+      }
+      render (){
         return <div>
-            <h1>Hello,World</h1>
-            <h2>It is {this.props.date.toLocaleTimeString()}</h2>
+          <h1>Hello,World</h1>
+          <h2>It is {this.state.date.toLocaleTimeString()}</h2>
           </div>
       }
     }
-    class App extends React.Component {
-      render() {
-        return <Clock date={new Date()} />
+    class App extends React.Component{
+      render(){
+        return <Clock />
       }
     }
     ReactDOM.render(
