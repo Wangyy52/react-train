@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>组件案例1</title>
+</head>
+<style>
+.header {
+  height: 100px;
+  background-color: lightblue;
+}
+.sidebar {
+  width: 30%;
+  height: 500px;
+  float: left;
+  background-color: lightcoral;
+}
+.content {
+  width: 70%;
+  float: left;
+  height: 500px;
+  background-color: lightgreen;
+}
+.footer {
+  height: 100px;
+  background-color: lawngreen;
+}
+.clear {
+  clear: both;
+}
+</style>
+<body>
+  <div id="container"></div>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script type="text/babel">
+    function Header(params) {
+      return <div className="header">Header</div>
+    }
+    function Sidebar(params) {
+      return <div className="sidebar">Sidebar</div>
+    }
+    function Content(params) {
+      return <div className="content">Content</div>
+    }
+    function Footer(params) {
+      return <div className="footer">Footer</div>
+    }
+    function Clear(params) {
+      return <div className="clear"></div>
+    }
+    function App(params) {
+      return (
+        <div>
+          <Header />
+          <Sidebar />
+          <Content />
+          <Clear />
+          <Footer />  
+        </div>
+      )
+    }
+    ReactDOM.render(
+      <App />,
+      document.getElementById('container')
+    )
+  </script>
+</body>
+
+</html>

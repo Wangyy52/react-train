@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>hello world</title>
+</head>
+<body>
+    <div id="container"></div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel" >
+    const name = '王阳源'
+    const element = <h1>Hello,{name}</h1>
+            ReactDOM.render(
+              element,
+            document.getElementById('container')
+          );
+        </script>
+</body>
+
+</html>
