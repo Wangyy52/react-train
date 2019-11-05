@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>表单-示例</title>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        function toCelsius(fahrenheit) {
+            return (fahrenheit -32)*5/9
+        }
+        function toFahrenheit(celsius) {
+            return (celsius*9/5)+32
+        }
+        const scaleNames = {
+            c:'摄氏度',
+            f:'华氏度'
+        }
+        class BoilingVedict extends React.Component{
+            render(){
+                const {celsius} = this.props
+                if(celsius>=100){
+                    return <p>水已经煮沸</p>
+                }
+                    return <p >水还没煮沸</p>
+              
+            }
+        }
+        class TemperatureInput extends React.Component{
+            constructor(props) {
+                super(props);
+            }
+            handleChange = (e)=>{
+                this.props.onTemperatureChange(e.target.value)
+            }
+            render(){
+                const {scale,temperature} =this.props
+                return <fieldset>
+                    <legend>输入温度（单位：{scaleNames[scale]}）</legend>
+                    <input type="number" step="0.001" value={temperature} onChange={this.handleChange} />
+                    </fieldset>
+            }
+        }
+        class Calculator extends React.Component{
+            constructor(props) {
+                super(props)
+                this.state={temperature:'0',scale:'c'}
+            }
+            handelCeliusChange = (val)=>{
+                this.setState({temperature:val,scale:'c'})
+            }
+            handelFahrenheitChange = (val)=>{
+                this.setState({temperature:val,scale:'f'})
+            }
+            render(){   
+                const {temperature,scale} = this.state
+                const celsius = scale == 'f' ? toCelsius(temperature).toFixed(2) : temperature
+                const fa = scale == 'c' ? toFahrenheit(temperature).toFixed(2) : temperature
+                return <div>
+                        <TemperatureInput scale={'c'} temperature = {celsius} onTemperatureChange={this.handelCeliusChange} />
+                        <TemperatureInput scale={'f'} temperature={fa} onTemperatureChange={this.handelFahrenheitChange}/>
+                        <BoilingVedict celsius={celsius} />
+                        </div>
+            }
+        }
+        class App extends React.Component {
+            render(){
+                return <Calculator />                
+            }
+        }
+        ReactDOM.render(
+            <App />,
+            document.getElementById('container')
+        )
+    </script>
+</body>
+
+</html>
