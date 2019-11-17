@@ -1,5 +1,6 @@
 import React from "react";
-
+// import "font-awesome-sprockets";
+// import "font-awesome";
 class Card extends React.Component {
   render() {
     const list = this.props.arr.map((item, key) => (
