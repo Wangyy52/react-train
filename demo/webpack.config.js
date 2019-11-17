@@ -16,7 +16,7 @@ module.exports = {
             filename: 'index.html'// 指定生成的页面的名称
         })
     ],
-    mode: 'development',
+    mode: 'production',
     module: {
         // eslint-disable-next-line no-sparse-arrays
         rules: [
