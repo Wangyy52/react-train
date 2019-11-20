@@ -22,26 +22,29 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                include: [path.resolve(__dirname,'src/styles'),/node_modules/],
+                use: ["style-loader", "css-loader"]
             },
             {
-                test: /\.lss$/,
-                use: ['style-loader', 'lss-loader']
+                test: /\.css$/,
+                exclude: [path.resolve(__dirname,'src/styles'),/node_modules/],
+                use: ["style-loader", "css-loader?modules"]
             },
-            {
-                test: /\.(png|jpg|gif|svg)$/,
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options: {
-                            limit: 8192
-                        }
-                    }
-                ]
-            },
+
             {test: /\.js$/,
                 exclude:/node_modules/,
                 enforce:"pre", use: ['babel-loader' ,'eslint-loader']
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                use: ["file-loader"]
+            },
+            {
+                test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/, /\.svg$/],
+                loader: "url-loader",
+                options: {
+                    limit: 10000
+                }
             }
         ]
     },

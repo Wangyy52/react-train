@@ -1,9 +1,10 @@
 import React from "react";
 import axios from "axios";
+// eslint-disable-next-line import/no-named-as-default,import/no-named-as-default-member
 import Card from "./Card";
 import Loading from "./Loadding";
-// import Header from "./Header";
-// import InfiniteScroll from 'react-infinite-scroller';
+import styles from "../style/Content.css"
+
 
 class Content extends React.Component {
   constructor(props) {
@@ -92,15 +93,8 @@ class Content extends React.Component {
           <li>
             {/* eslint-disable-next-line react/button-has-type */}
             <button
-              style={{
-                padding: "1px 6px",
-                backgroundColor: "#fff",
-                fontWeight: "700",
-                fontSize: "18px",
-                border: "0",
-                // eslint-disable-next-line eqeqeq
-                color: this.state.color === "all" ? "red" : "black"
-              }}
+              className={styles.contentbutton}
+              style={{color: this.state.color === "all" ? "red" : "black"}}
               onClick={this.handelAll}
             >
               All
@@ -109,12 +103,8 @@ class Content extends React.Component {
           <li>
             {/* eslint-disable-next-line react/button-has-type */}
             <button
+              className={styles.contentbutton}
               style={{
-                padding: "1px 6px",
-                backgroundColor: "#fff",
-                fontWeight: "700",
-                fontSize: "18px",
-                border: "0",
                 color: this.state.color === "javaScript" ? "red" : "black"
               }}
               onClick={this.handelJavaScript}
@@ -125,12 +115,8 @@ class Content extends React.Component {
           <li>
             {/* eslint-disable-next-line react/button-has-type */}
             <button
+              className={styles.contentbutton}
               style={{
-                padding: "1px 6px",
-                backgroundColor: "#fff",
-                fontWeight: "700",
-                fontSize: "18px",
-                border: "0",
                 color: this.state.color === "ruby" ? "red" : "black"
               }}
               onClick={this.handelRuby}
@@ -141,12 +127,8 @@ class Content extends React.Component {
           <li>
             {/* eslint-disable-next-line react/button-has-type */}
             <button
+              className={styles.contentbutton}
               style={{
-                padding: "1px 6px",
-                backgroundColor: "#fff",
-                fontWeight: "700",
-                fontSize: "18px",
-                border: "0",
                 color: this.state.color === "css" ? "red" : "black"
               }}
               onClick={this.handelCSS}
@@ -157,12 +139,8 @@ class Content extends React.Component {
           <li>
             {/* eslint-disable-next-line react/button-has-type */}
             <button
+              className={styles.contentbutton}
               style={{
-                padding: "1px 6px",
-                backgroundColor: "#fff",
-                fontWeight: "700",
-                fontSize: "18px",
-                border: "0",
                 color: this.state.color === "java" ? "red" : "black"
               }}
               onClick={this.handelPython}

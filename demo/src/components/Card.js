@@ -1,44 +1,29 @@
 import React from "react";
-// import "font-awesome-sprockets";
-// import "font-awesome";
+import styles from "../style/card.css"
+
 class Card extends React.Component {
   render() {
     const list = this.props.arr.map((item, key) => (
       <div
         key={key}
-        style={{
-          width: "250px",
-          padding: "20px",
-          backgroundColor: "#ebebeb",
-          textAlign: "center",
-          margin: "10px 0"
-        }}
+        className={styles.card}
       >
         <h3>#{key + 1}</h3>
         <img
           src={item.owner.avatar_url}
           alt={item.owner.login}
-          style={{ width: "150px", height: "150px", margin: "0 auto" }}
+          className={styles.cardimg}
         />
-        <h2
-          style={{ fontSize: "1.5em", lineHeight: "40px", fontWeight: "bold" }}
-        >
+        <h2 className={styles.cardh2}>
           <a href="#" style={{ color: "deeppink" }}>
             {item.owner.login}
           </a>
         </h2>
-        <ul style={{ textAlign: "left", lineHeight: "35px" }}>
+        <ul className={styles.cardul}>
           <li>
             <i
-              className="fa fa-user"
+              className={["fa fa-user",styles.cardi]}
               aria-hidden="true"
-              style={{
-                fontSize: "23px",
-                color: "#ffc06d",
-                width: "42px",
-                height: "25px",
-                textAlign: "center"
-              }}
             />
             <a href="#" style={{ color: "#333" }}>
               {item.owner.login}
@@ -46,15 +31,8 @@ class Card extends React.Component {
           </li>
           <li>
             <i
-              className="fa fa-star"
+              className={["fa fa-star",styles.cardi]}
               aria-hidden="true"
-              style={{
-                fontSize: "23px",
-                color: "#ffd900",
-                width: "42px",
-                height: "25px",
-                textAlign: "center"
-              }}
             />
             <a href="#" style={{ color: "#333" }}>
               {item.stargazers_count} stars
@@ -62,15 +40,8 @@ class Card extends React.Component {
           </li>
           <li>
             <i
-              className="fa fa-code-fork"
+              className={["fa fa-code-fork",styles.cardi]}
               aria-hidden="true"
-              style={{
-                fontSize: "23px",
-                color: "#91c9f5",
-                width: "42px",
-                height: "25px",
-                textAlign: "center"
-              }}
             />
             <a href="#" style={{ color: "#333" }}>
               {item.forks_count} forks
@@ -78,15 +49,8 @@ class Card extends React.Component {
           </li>
           <li>
             <i
-              className="fa fa-exclamation-triangle"
+              className={["fa fa-exclamation-triangle",styles.cardi]}
               aria-hidden="true"
-              style={{
-                fontSize: "23px",
-                color: "#f38991",
-                width: "42px",
-                height: "25px",
-                textAlign: "center"
-              }}
             />
             <a href="#" style={{ color: "#333" }}>
               {item.open_issues_count} open issues
@@ -96,13 +60,7 @@ class Card extends React.Component {
       </div>
     ));
     return (
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "space-around"
-        }}
-      >
+      <div className={styles.cardmain}>
         {list}
       </div>
     );

@@ -3,7 +3,6 @@ import BattleHeader from "./BattleHeader";
 import BattleContent from "./BattleContent";
 import BattleFooter from "./BattleFooter";
 
-// eslint-disable-next-line no-undef
 class Battle extends React.Component {
   render() {
     return (

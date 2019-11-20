@@ -1,18 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
-// eslint-disable-next-line no-unused-vars
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
-// import Header from './components/Header';
+import './style/index.css';
+import 'font-awesome/css/font-awesome.min.css'
+import { Switch,Link,Route,HashRouter,Redirect } from "react-router-dom";
 import Content from "./components/Content";
-// eslint-disable-next-line no-unused-vars
 import Battle from "./components/Battle";
+import BattleCard from "./components/BattleCard";
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <Router>
+        <HashRouter>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <ul style={{ display: "flex", fontWeight: "700" }}>
               {/* eslint-disable-next-line camelcase,no-undef */}
@@ -23,15 +22,15 @@ class App extends React.Component {
                   color: "rgb(187, 46, 31)"
                 }}
               >
-                <NavLink activeClassName="active" to="/">
+                <Link activeClassName="active" to="/">
                   Popular
-                </NavLink>
+                </Link>
               </li>
               {/* eslint-disable-next-line camelcase */}
               <li style={{ cursor: "pointer" }}>
-                <NavLink activeClassName="active" to="/Battle">
+                <Link activeClassName="active" to="/Battle">
                   Battle
-                </NavLink>
+                </Link>
               </li>
             </ul>
             {/* eslint-disable-next-line jsx-a11y/accessible-emoji,react/button-has-type */}
@@ -45,11 +44,13 @@ class App extends React.Component {
               🔦
             </button>
           </div>
-          <div>
+          <Switch>
             <Route path="/" exact component={Content} />
             <Route path="/Battle" exact component={Battle} />
-          </div>
-        </Router>
+            <Route path="/Battle/card" exact component={BattleCard} />
+            <Redirect to="/" />
+          </Switch>
+        </HashRouter>
       </div>
     );
   }
