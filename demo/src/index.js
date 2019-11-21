@@ -2,10 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import './style/index.css';
 import 'font-awesome/css/font-awesome.min.css'
-import { Switch,Link,Route,HashRouter,Redirect } from "react-router-dom";
+import { Switch,NavLink,Route,HashRouter,Redirect } from "react-router-dom";
 import Content from "./components/Content";
 import Battle from "./components/Battle";
 import BattleCard from "./components/BattleCard";
+
 
 class App extends React.Component {
   render() {
@@ -22,15 +23,15 @@ class App extends React.Component {
                   color: "rgb(187, 46, 31)"
                 }}
               >
-                <Link activeClassName="active" to="/">
+                <NavLink activeStyle={{color:"red"}} to="/index">
                   Popular
-                </Link>
+                </NavLink>
               </li>
               {/* eslint-disable-next-line camelcase */}
               <li style={{ cursor: "pointer" }}>
-                <Link activeClassName="active" to="/Battle">
+                <NavLink activeStyle={{color:"red"}} to="/Battle">
                   Battle
-                </Link>
+                </NavLink>
               </li>
             </ul>
             {/* eslint-disable-next-line jsx-a11y/accessible-emoji,react/button-has-type */}
@@ -45,10 +46,10 @@ class App extends React.Component {
             </button>
           </div>
           <Switch>
-            <Route path="/" exact component={Content} />
+            <Route path="/index" exact component={Content} />
             <Route path="/Battle" exact component={Battle} />
             <Route path="/Battle/card" exact component={BattleCard} />
-            <Redirect to="/" />
+            <Redirect to="/index" />
           </Switch>
         </HashRouter>
       </div>

@@ -2,7 +2,7 @@
   "name": "demo",
   "version": "1.0.0",
   "main": "index.js",
-  "homepage":"./",
+  "homepage": "./",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --open --port 3000 --contenBase src --hot"
@@ -33,6 +33,7 @@
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "babel-standalone": "^6.26.0",
+    "classnames": "^2.2.6",
     "css-loader": "^3.2.0",
     "eslint": "^6.6.0",
     "eslint-config-airbnb": "^18.0.1",
@@ -50,6 +51,7 @@
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-font-awesome": "^1.0.3",
+    "react-fontawesome": "^1.7.1",
     "react-infinite-scroller": "^1.2.4",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",

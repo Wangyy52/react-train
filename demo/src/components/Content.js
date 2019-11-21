@@ -4,7 +4,7 @@ import axios from "axios";
 import Card from "./Card";
 import Loading from "./Loadding";
 import styles from "../style/Content.css"
-
+import 'font-awesome/css/font-awesome.min.css'
 
 class Content extends React.Component {
   constructor(props) {

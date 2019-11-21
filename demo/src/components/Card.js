@@ -1,4 +1,5 @@
 import React from "react";
+import FontAwesome from 'react-fontawesome'
 import styles from "../style/card.css"
 
 class Card extends React.Component {
@@ -21,36 +22,56 @@ class Card extends React.Component {
         </h2>
         <ul className={styles.cardul}>
           <li>
-            <i
-              className={["fa fa-user",styles.cardi]}
+            <FontAwesome
+              className="fa fa-user"
               aria-hidden="true"
+              style={{fontSize: '23px',
+                color: '#ffc06d',
+                width: '42px',
+                height: '25px',
+                textAlign: 'center'}}
             />
             <a href="#" style={{ color: "#333" }}>
               {item.owner.login}
             </a>
           </li>
           <li>
-            <i
-              className={["fa fa-star",styles.cardi]}
+            <FontAwesome
+              className="fa fa-star"
               aria-hidden="true"
+              style={{fontSize: '23px',
+                color: '#ffc06d',
+                width: '42px',
+                height: '25px',
+                textAlign: 'center'}}
             />
             <a href="#" style={{ color: "#333" }}>
               {item.stargazers_count} stars
             </a>
           </li>
           <li>
-            <i
-              className={["fa fa-code-fork",styles.cardi]}
+            <FontAwesome
+              className="fa fa-code-fork"
               aria-hidden="true"
+              style={{fontSize: '23px',
+                color: '#ffc06d',
+                width: '42px',
+                height: '25px',
+                textAlign: 'center'}}
             />
             <a href="#" style={{ color: "#333" }}>
               {item.forks_count} forks
             </a>
           </li>
           <li>
-            <i
-              className={["fa fa-exclamation-triangle",styles.cardi]}
+            <FontAwesome
+              className="fa fa-exclamation-triangle"
               aria-hidden="true"
+              style={{fontSize: '23px',
+                color: '#ffc06d',
+                width: '42px',
+                height: '25px',
+                textAlign: 'center'}}
             />
             <a href="#" style={{ color: "#333" }}>
               {item.open_issues_count} open issues
